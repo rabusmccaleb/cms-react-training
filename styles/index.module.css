@@ -1,0 +1,34 @@
+.contentContainer {
+	width : 100%;
+	height : 100%;
+	display : grid;
+	place-items : center;
+	padding : 40px;
+}
+
+.rssFeed {
+	color : rgb(153, 0, 0);
+	font-weight : 600;
+	margin-bottom : 20px;
+	font-size : 10px;
+}
+
+.comicGridContainer {
+	width : 100%;
+	display : grid;
+	grid-template-columns: repeat(auto-fit, minmax(154px, 1fr));
+	gap : 20px;
+	place-items: center;
+}
+
+.errorLabel {
+	color : rgb(153, 0, 0);
+	font-weight : 600; 
+	transition : ease-in-out;
+}
+
+.loadingLabel {
+	color : black;
+	font-weight : 600; 
+	transition : ease-in-out;
+}
