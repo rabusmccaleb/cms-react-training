@@ -1,0 +1,58 @@
+.favoritesMobileContainer {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: fit-content;
+	max-height: 950px;
+	overflow: hidden;
+	overflow-y: scroll;
+	background-color: #222222;
+	border-top: 0.5px solid #f8f8f23d;;
+	/* Hide scrollbars for all browsers */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.favoritesMobileContainer::-webkit-scrollbar { 
+    display: none !important;  /* Safari and Chrome */
+}
+
+.favoritesMobileTitle {
+	color : #F8F8F2;
+	font: Montserrat;
+	font-weight: 900;
+	font-size: 25px;
+	padding : 20px;
+}
+
+.NoFavoritesPrompt {
+	font: normal normal  14px/16px Montserrat;
+	letter-spacing: 0px;
+	color: #F8F8F2;
+	font-weight: 500;
+	padding: 4px 20px;
+}
+
+.favoritesButtonTitle{
+	text-align: right;
+	font: normal normal bold 14px/16px Montserrat;
+	letter-spacing: 0px;
+	color: #F8F8F2;
+}
+
+.favoritesMobileIcon {
+	margin-left: 8px;
+}
+
+.closeDropDownButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #C24868;
+	border: none;
+	width: 100%;
+	height: fit-content;
+	padding: 20px;
+	color : #F8F8F2;
+	margin-top: 20px;
+}

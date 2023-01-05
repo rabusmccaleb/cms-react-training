@@ -1,0 +1,50 @@
+.controlsContianer {
+	width: 100%;
+	height: 60px;
+	background-color: #222222;
+	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.gridContentContainer .controlsLabel{
+	color : white;
+	font-weight: 500;
+	font-size: 14px;
+	text-align: left;
+	z-index: 1;
+	margin-right: auto;
+	margin-left: 20px;
+}
+
+.gridContentContainer select {
+	background-color: #222222;
+	border-radius: 3px;
+	border: 1px solid #8B8B8B;
+	color : #F8F8F2;
+	font-size: 16px;
+	padding-left: 8px;
+	padding: 4px;
+	width: 245px;
+	margin-left: 8px;
+}
+
+@media (max-width : 1024px) {
+	.gridContentContainer select {
+		width: 180px;
+	}
+}
+
+@media (max-width : 750px) {
+	.gridContentContainer select {
+		visibility: hidden;
+		width: 0;
+		height: 0;
+		padding: 0;
+		border: none;
+		pointer-events: none;
+	}
+	
+}

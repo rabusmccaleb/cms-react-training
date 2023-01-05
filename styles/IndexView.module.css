@@ -1,0 +1,81 @@
+.indexViewContainer {
+	position: relative;
+	display: flex;
+	align-items: center;
+	margin-top: 30px;
+	margin-bottom: 60px;
+}
+
+.buttonContainer {
+	display: grid;
+	place-items: center;
+	width: 35px;
+	height: 35px;
+	background-color: #222222;
+	border: none;
+	border-radius: 50%;
+}
+
+.arrowTop {
+	position : relative;
+	background-color : white;
+	height : 3px;
+	width : 8px;
+	border-radius : 1px;
+	z-index : 1;
+	top : -0.5px;
+}
+
+.arrowBottom {
+	position : relative;
+	background-color : white;
+	height : 3px;
+	width : 8px;
+	border-radius : 1px;
+	z-index : 1;
+	bottom: -0.5px;
+}
+
+.next {
+	left : 8px;
+}
+
+.next .arrowTop {
+	rotate : 45deg;
+}
+
+.next .arrowBottom {
+	rotate : -45deg;
+}
+
+.previous {
+	right : 8px;
+}
+
+.previous .arrowTop {
+	rotate : -45deg;
+}
+
+.previous .arrowBottom {
+	rotate : 45deg;
+}
+
+.countControls {
+	position: relative;
+	display: flex;
+}
+
+.lowBoundIndex {
+	margin-right: 2px;
+	margin-left: 8px;
+}
+
+.highBoundIndex {
+	margin-left: 2px;
+	margin-right: 4px;
+}
+
+.maxContentCount {
+	margin-left: 4px;
+	margin-right: 8px;
+}

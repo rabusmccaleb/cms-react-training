@@ -1,0 +1,23 @@
+.popUpContainer {
+	position: absolute;
+	z-index: 10000000;
+	bottom: 0;
+	left: 0;
+	width: 100vw;
+	height: fit-content;
+	padding: 40px;
+    transition: transform .35s ease-in-out;
+}
+
+.popUpContent {
+	display : grid;
+	place-items: center;
+	width : 100%;
+	height: fit-content;
+	border-radius: 20px;
+	padding: 40px;
+	background-color: #C24868E6;
+	color : #F8F8F2;
+	font-weight : 600;
+	font-family: 'montserrat'
+}

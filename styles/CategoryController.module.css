@@ -1,0 +1,157 @@
+.controlsContianer {
+	position: relative;
+	width: 100%;
+	height: 60px;
+	background-color: #222222;
+	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+	padding-right: 20px;
+	z-index: 10;
+}
+
+.desktopControls {
+	display : flex;
+	align-items: center;
+}
+
+.controlsContianer select {
+	background-color: #222222;
+	border-radius: 3px;
+	border: 1px solid #8B8B8B;
+	color : #e7e7e1;
+	font-size: 15px;
+	padding-left: 8px;
+	padding: 4px;
+	width: 245px;
+	margin-left: 8px;
+}
+
+@media (max-width : 1024px) {
+	.controlsContianer select {
+		width: 180px;
+	}
+}
+
+@media (max-width : 850px) {
+	.controlsContianer .controlsLabel, .controlsContianer .desktopSelect {
+		visibility: hidden;
+		width: 0;
+		height: 0;
+		padding: 0;
+		border: none;
+		pointer-events: none;
+		margin: 0;
+	}
+}
+
+.mobileFilterControls {
+	position: absolute;
+	left : 0;
+	bottom: 0;
+	width: 100%;
+	height : 0;
+	padding: 0;
+	visibility: visible;
+	pointer-events: unset;
+	background-color: #222222;
+	transform: translateY(100%);
+}
+
+@media (min-width : 850px) {
+	.mobileFilterControls, .mobileFilterButton {
+		visibility: hidden;
+		width: 0;
+		height: 0;
+		padding: 0;
+		border: none;
+		pointer-events: none;
+		margin: 0;
+	}
+}
+
+.mobileControlsLabel, .controlsLabel {
+	color : #F8F8F2;
+	font-weight: 500;
+	font-size: 14px;
+	text-align: left;
+	z-index: 1;
+	margin-right: auto;
+	margin-left: 20px;
+}
+
+.mobileFilterButton {
+	padding: 0;
+	background-color: transparent;
+	margin-left: 20px;
+	border: none;
+}
+
+.mobileControlsLabel {
+	margin-left: 0px;
+}
+
+.reset {
+	border: solid 0.5px #f8f8f2a8;
+	background-color: transparent;
+	text-shadow: 0px 2px 4px black;
+	font-weight: 700;
+	color: #f8f8f2;
+	margin-left: 20px;
+	border-radius: 2px;
+}
+
+.favoritesMobileDropDownContianer {
+	position: relative;
+	display: flex;
+	width: 130px;
+	flex-direction: column;
+	height: auto;
+	margin-left: auto;
+	z-index: 0;
+	overflow: visible;
+}
+
+.favoritesMobileInfo {
+	display: flex;
+	width: 100%;
+	border: none;
+	background-color: transparent;
+}
+
+.favoritesMobileTitle {
+	text-align: left;
+	font: normal normal bold 14px/16px Montserrat;
+	letter-spacing: 0px;
+	color: #F8F8F2;
+	white-space: nowrap;
+}
+
+.favoritesMobileDropDown {
+	position: absolute;
+	width: 100%;
+	height: 0px;
+	z-index: 10;
+	bottom: 0;
+	left: 0;
+}
+
+
+@media (min-width : 850px) {
+	.favoritesMobileDropDownContianer {
+		width: 0;
+		height: 0;
+		z-index: 10;
+		overflow: hidden;
+		pointer-events: none;
+	}
+
+	.favoritesMobileDropDown {
+		width: 0;
+		height:0;
+		z-index: 10;
+		visibility: hidden;
+		pointer-events: none;
+	}
+}
+
