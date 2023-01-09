@@ -3,10 +3,10 @@ import { context } from '../../Importables/ComicContext';
 import { Item } from '../../Importables/Model/DynamicDataModel';
 import styles from '../../styles/Comic.module.css';
 import Image from 'next/image';
-import { faBoltLightning } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { DateObjs } from '../../Importables/Model/DynamicDataModel';
 import ComicDetail from './ComicDetail';
+import ComicInfoContainer from './ComicSubComponents/ComicInfoContainer';
+import ComicButton from './ComicSubComponents/ComicButton';
 
 interface Prop  {
 	id : string,
@@ -105,41 +105,8 @@ const Comic = ({id, thumbnail, title, href, issueNumber, publishDate, creators, 
 	return(
 		<div className={ styles.comicConatiner } id={ id } role="contentinfo">
 			{ thumbnail && title ? <Image alt={ title! } src={ thumbnail! } width={ 158 } height={ 263 } className={ styles.comicThumbnail } onClick={ () => { updateBlurView(comicDetail); } }/> : <></> }
-			<div className={ styles.comicButtonContainer }>
-				<button className={ `${styles.comicButton} buttonHover` } style={{
-						backgroundColor: isAddedToFavorites ? '#C24868' : 'black',
-						boxShadow: isAddedToFavorites ? '0 0 0 2px #f8f8f2' : 'unset',
-						display : 'grid',
-						placeItems : 'center',
-					}} onClick={() => {
-						updateFavorites()
-					}}>
-					<FontAwesomeIcon icon={ faBoltLightning }  style={ { width : '10px', height : '16px', color : '#F8F8F2' } } />
-				</button>
-			</div>
-			<div className={ styles.infoContainer }>
-				<h4 className={ styles.comicTitle } data-testid='comicTitle' role=''>
-					<a href={ href }>{ title }</a>
-				</h4>
-				{ (issueNumber && issueNumber.trim() !== '') &&
-					<div className={ `${styles.comicLabelContainers} ${styles.comicLabelContainersIssue}` }>
-						<label className={ styles.comicLabelTitle }>Issue Number : </label>
-						<label>{ `${issueNumber}` }</label>
-					</div>
-				}
-				{ date &&
-					<div className={ styles.comicLabelContainers }>
-						<label className={ styles.comicLabelTitle }>Published : </label>
-						<label>{ `${date}` }</label>
-					</div>
-				}
-				{ (creatorsList && creatorsList.length > 0) &&
-					<div className={ `${styles.comicLabelContainers} ${styles.creators}` }>
-						<label className={ styles.comicLabelTitle }>Creators : </label> 
-						<label>{ `${creatorsList.join(', ')}` }</label>
-					</div>
-				}
-			</div>
+			<ComicButton isAddedToFavorites={ isAddedToFavorites } updateFavorites={ updateFavorites }/>
+			<ComicInfoContainer creatorsList={ creatorsList } href={ href } issueNumber={ issueNumber } title={ title } date={ date }/>
 		</div>
 	)
 }
