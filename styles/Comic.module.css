@@ -52,7 +52,7 @@
 	text-align: left;
 	display: flex;
 	flex-direction: column;
-	font: Montserrat, Regular;
+	font-family: 'Karla', sans-serif;
 	margin-top: 8px;
 }
 

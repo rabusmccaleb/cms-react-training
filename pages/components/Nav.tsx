@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBoltLightning, faBars } from "@fortawesome/free-solid-svg-icons";
 import { useContext, useState, useEffect } from 'react';
 import { context } from '../../Importables/ComicContext';
-import { useSpring, animated } from '@react-spring/web';
+import { useSpring, animated, config } from '@react-spring/web';
 
 const Nav = () => {
 	const [ openMenu, setOpenMenu ] = useState<boolean>(false);
@@ -32,9 +32,10 @@ const Nav = () => {
 	const [ animateHeaderSlide, setAnimateHeaderSlide ] = useState<boolean>(false)
 	const navLoadAnimation = useSpring({
 		opacity : animateHeaderSlide ? 1.0 : 0.0,
-		height : animateHeaderSlide ? 179 : 0.0
+		height : animateHeaderSlide ? 179 : 0.0,
+		config : config.wobbly,
 	});
-
+	console.log("config : ", config);
 	useEffect(() => {
 		setAnimateHeaderSlide(true);
 	}, []);

@@ -13,7 +13,9 @@ module.exports = {
       },
     ],
   },
+  env: {
+    PUBLIC_KEY: process.env.PUBLIC_KEY,
+    PRIVATE_KEY: process.env.PRIVATE_KEY,
+    BASE_MARVEL_API : process.env.BASE_MARVEL_API,
+  }
 }
-// http://i.annihil.us
-
-// "http://i.annihil.us/u/prod/marvel/i/mg/f/20/4bc69f33cafc0"

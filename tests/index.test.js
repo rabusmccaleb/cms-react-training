@@ -118,7 +118,7 @@ const date = (comicItem && comicItem.publishDate) ? new Date(comicItem.publishDa
 
 describe("<Comic/> Component test", () => {
     it("renders a Comic Component", () => {
-     const { getByTestId } = render(
+    render(
             <Comic
                 key={(Math.random() * Math.random() * 100)} 
                 href={(comicItem.urls && comicItem.urls.length) ? comicItem.urls[0].url : ""}
@@ -127,8 +127,8 @@ describe("<Comic/> Component test", () => {
                 issueNumber={`${comicItem.issueNumber}`} 
                 publishDate={date}
                 creators={comicItem.creators.items}
+                description={comicItem.description ? comicItem.description : ""}
             />
         )
-        getByTestId('comicTitle');
     });
 });

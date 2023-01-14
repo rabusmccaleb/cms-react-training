@@ -7,6 +7,7 @@ import { DateObjs } from '../../Importables/Model/DynamicDataModel';
 import ComicDetail from './ComicDetail';
 import ComicInfoContainer from './ComicSubComponents/ComicInfoContainer';
 import ComicButton from './ComicSubComponents/ComicButton';
+import { useSpring, animated, config } from '@react-spring/web';
 
 interface Prop  {
 	id : string,
@@ -31,7 +32,8 @@ const Comic = ({id, thumbnail, title, href, issueNumber, publishDate, creators, 
 		if (dates.length) {
 			const isoDate = new Date(dates[0].date);
 			const months = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
-			date = `${months[isoDate.getMonth()] } ${ isoDate.getDay() }, ${ isoDate.getFullYear()}`;
+			date = `${months[isoDate.getMonth()] } ${ isoDate.getUTCDay()}, ${ isoDate.getFullYear()}`;
+			date = months[isoDate.getMonth()] ? date : undefined;
 		}
 	}
 

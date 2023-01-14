@@ -1,5 +1,4 @@
 import styles from '../../../styles/Comic.module.css';
-import { useSpring } from '@react-spring/web'
 
 interface Props {
     href : string;

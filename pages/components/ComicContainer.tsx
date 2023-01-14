@@ -3,7 +3,6 @@ import Comic from './Comic';
 import ComicDataResponse from './ComicContainerHandlers/ComicDataResponse';
 import { GetDataObject } from '../../Importables/CustomHooks';
 import { dynamicDataModel } from '../../Importables/Model/DynamicDataModel';
-import { useTransition, animated } from '@react-spring/web'
 
 interface Props {
 	comicData : GetDataObject | undefined;

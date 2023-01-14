@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react';
  * data : ({}[] | undefined)
  * }
 }
- */
+*/
 export interface GetDataObject {
 	response : {
 		isError : boolean,
@@ -17,9 +17,6 @@ export interface GetDataObject {
 		data : ({}[] | undefined)
 	}
 }
-
-
-
 
 // Note : requestCategory
 /**
@@ -162,25 +159,22 @@ export function useWindowSize(){
 *  @param creatorId, 
  */
 export function returnURL(category : requestCategory, limit? : number, ID? : string, secondaryCategory?: secondaryCategory, characterId? : string, creatorId? : string): string {
-	const publickey = '31bca0b4b320ad36938f4430a0715fbf';
-	const privatekey = '9e330e343cc2c5489f48610e811306377f207ca8';
-	const timeStamp = new Date().getTime()
-	const stringToHash = timeStamp + privatekey + publickey;
+	const publickey = process.env.PUBLIC_KEY;
+	const privatekey = process.env.PRIVATE_KEY;
+	const timeStamp = new Date().getTime();
+	const stringToHash = timeStamp + privatekey! + publickey!;
 	const hash = MD5(stringToHash);
-	//
-	const base = 'https://gateway.marvel.com/v1/public/'
+	const base = process.env.BASE_MARVEL_API;
 	const amountLimit = limit ?  `&limit=${limit}` : '';
 	let id = ID ?  `/${ID}/` : '';
 	let secondCategory = '';
 	let characterCreatorQuery = '';
-
 	if ((secondaryCategory && !(characterId && creatorId))) {
 		id = `/${secondaryCategory.conetentID}/`;
 		secondCategory = secondaryCategory.category;
 	} else if ((characterId && creatorId) && (characterId.trim() !== '' && creatorId.trim() !== '')) {
 		characterCreatorQuery = `&creators=${creatorId}&characters=${characterId}`;
 	}
-
 	const url = `${base}${category}${id}${secondCategory}?ts=${timeStamp}&apikey=${publickey}&hash=${hash}${amountLimit}${characterCreatorQuery}`;
 	return url;
 }

@@ -5,6 +5,7 @@ import { requestCategory } from '../../Importables/CustomHooks';
 import { faBoltLightning , faFilter } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import FavoritesMobileDropDown from './FavoritesMobileDropDown';
+import { useSpring, animated } from '@react-spring/web';
 
 interface Props {
 	updateComics : (val? : string, type? : requestCategory, reseting? : boolean , comicsObj? : { character : string, creator : string }) => void;
@@ -55,11 +56,16 @@ const CategoryController = ({updateComics}: Props) => {
 		}
 	}
 
+	const navLoadAnimation = useSpring({
+		opacity : shouldShowFavorites ? 1.0 : 0.0,
+		overflow : shouldShowFavorites ? 'visible' : 'hidden',
+	});
+
 	return (
 		<div className={styles.controlsContianer}>
-				<div className={styles.favoritesMobileDropDown} style={{overflow : shouldShowFavorites ? 'visible' : 'hidden'}}>
+				<animated.div className={styles.favoritesMobileDropDown} style={navLoadAnimation}>
 						<FavoritesMobileDropDown dropDownButtonText={shouldShowFavorites ?	'Hide Favorites' : 'Show Favorites'} updateButtonText={mobileShowFavorites} />
-				</div>
+				</animated.div>
 				<div className={styles.desktopControls}>
 						<label className={styles.controlsLabel}>Filter by: </label>
 						<Select isDesktop={true} characterOptions={characterOptions} creatorOptions={creatorOptions} requestObj={requestObj} updateComics={updateComics} selectedElement={selectedElement}/>

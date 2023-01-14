@@ -25,7 +25,7 @@ export default function Home() {
 			}
 
 			if (comicsObj && (comicsObj.character.trim() === '' || comicsObj.creator.trim() === '')) {
-				let newUrl = returnURL(type!, 100, '', characterObj);
+				let newUrl = returnURL(type!, undefined, '', characterObj);
 				setComicUrl(oldURL =>{
 					setComics((list : any) => { return []; });
 					resetIndex();
@@ -33,7 +33,7 @@ export default function Home() {
 				});
 			} else {
 				if (comicsObj) {
-					let newUrl = returnURL(requestCategory.comics!, 100, '', characterObj, comicsObj.character, comicsObj.creator);
+					let newUrl = returnURL(requestCategory.comics!, undefined, '', characterObj, comicsObj.character, comicsObj.creator);
 					setComicUrl(oldURL =>{
 						setComics((list : any) => { return []; });
 						resetIndex();
@@ -43,14 +43,14 @@ export default function Home() {
 			}
 		} else {
 			if (!reseting && comicsObj && (comicsObj.character.trim() !== '' || comicsObj.creator.trim() !== '')) {
-				let newUrl = returnURL(requestCategory.comics!, 100, '', undefined, comicsObj.character, comicsObj.creator);
+				let newUrl = returnURL(requestCategory.comics!, undefined, '', undefined, comicsObj.character, comicsObj.creator);
 				setComicUrl(oldURL =>{
 					setComics((list : any) => { return []; });
 					resetIndex();
 					return newUrl;
 				});
 			} else {
-				let newUrl = returnURL(requestCategory.comics, 100, undefined, undefined, undefined);
+				let newUrl = returnURL(requestCategory.comics, undefined, undefined, undefined, undefined);
 				setComicUrl(oldURL =>{
 					setComics((list : any) => { return []; });
 					resetIndex();
