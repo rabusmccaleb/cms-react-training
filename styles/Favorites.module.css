@@ -1,0 +1,50 @@
+.favoritesContainer {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 270px;
+	height: fit-content;
+	overflow: hidden;
+	overflow-y: scroll;
+	background-color: #222222;
+	margin-top : 40px;
+	margin-right : 60px;
+	padding : 25px;
+	/* Hide scrollbars for all browsers */
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.favoritesContainer::-webkit-scrollbar { 
+    display: none !important;  /* Safari and Chrome */
+}
+
+@media (max-width : 850px) {
+	.favoritesContainer {
+		width: 0;
+		height: 0;
+		margin-top : 0;
+		margin-right : 0;
+		padding : 0;
+		visibility: hidden;
+	}
+}
+
+.favoritesTitle {
+	color : #F8F8F2;
+	font: Montserrat;
+	font-weight: 900;
+	font-size: 25px;
+}
+
+.NoFavoritesPrompt {
+	font: normal normal  14px/16px Montserrat;
+	letter-spacing: 0px;
+	color: #F8F8F2;
+	font-weight: 500;
+	padding: 4px 0px;
+}
+
+.favoritesContainer li {
+	list-style: none;
+}

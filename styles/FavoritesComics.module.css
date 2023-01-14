@@ -1,0 +1,62 @@
+.HStack {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+	margin-top: 20px;
+    margin-left: 20px;
+    width: fit-content;
+    font-family: 'Karla', sans-serif;
+}
+
+.VStack {
+	display: flex;
+	flex-direction: column;
+	margin-left: 12px;
+	color: #F8F8F2;
+}
+
+.removeButtonContainer {
+    height: 0;
+    width: 0;
+    z-index: 10;
+}
+
+.removeButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    overflow: hidden;
+    color : #C24868;
+    background-color: #f8f8f2b3;
+    font: normal normal normal 8px Font Awesome 5 Free;
+    font-weight: 600;
+    border: none;
+    transform: translate(-50%, -50%);
+}
+
+@media (min-height : 850px) {
+    .removeButton {
+        width: 35px;
+        height: 35px;
+        font-size: 15px;
+    }
+}
+
+.thumbnail {
+	height : 75px;
+	width : 50px;
+}
+
+.title {
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.issueNumber {
+	font-size : 12px;
+	margin-top : 8px;
+}

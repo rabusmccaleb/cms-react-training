@@ -1,0 +1,132 @@
+.comicConatiner {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: auto;
+	width: 100%;
+	height: auto;
+	transition: ease-in-out;
+}
+
+.comicThumbnail {
+    position: relative;
+    width: 100%;
+    text-align: left;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+    object-fit: cover;
+    height: auto;
+}
+
+.comicButtonContainer {
+	position: relative;
+	height: 0px;
+	display: grid;
+	place-items: center;
+}
+
+.comicButton {
+	position: absolute;
+	background-color: black;
+	border-radius: 50%;
+	width: 28px;
+	height: 28px;
+	border: none;
+}
+
+.infoContainer {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	pointer-events: none;
+}
+
+.comicTitle {
+	margin : 0;
+	margin-top: 36px;
+}
+
+.comicLabelContainers {
+	position: relative;
+	width: 100%;
+	height: auto;
+	font-size: 12px;
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+	font-family: 'Karla', sans-serif;
+	margin-top: 8px;
+}
+
+.comicLabelContainersIssue {
+	flex-direction: row;
+}
+
+.comicLabelTitle {
+	font-weight: bold;
+	margin-right: 4px;
+}
+
+@media (max-width : 424px) {
+	.comicConatiner {
+		flex-direction: row-reverse;
+		max-width: auto;
+	}
+	
+	.comicThumbnail {
+		position: relative;
+		margin-left: 20px;
+		width: 135px !important;
+		height: 210px !important;
+		margin-right: 12px;
+	}
+
+	.comicButtonContainer {
+		position: relative;
+		height: 0px;
+		display: grid;
+		place-items: center;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+	
+	.comicButton {
+		position: absolute;
+		left: calc(10px);
+		top : calc(50% - 11px);
+		background-color: black;
+		border-radius: 50%;
+		width: 30px;
+		height: 30px;
+	}
+
+	.infoContainer {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		margin-right:  auto;
+	}
+	
+	.comicTitle {
+		margin : 0;
+		font-size: 14px;
+	}
+
+	.comicLabelContainers {
+		font-size: 11px;
+	}
+	
+	.creators {
+		flex-direction: column;
+	}
+}
+
+@media (max-width : 344px) {
+	.comicThumbnail {
+		width: 100px;
+	}
+}
+
+.comicButton:hover {
+	background-color: #C24868 !important;
+	box-shadow: 0 0 0 2px #f8f8f2 !important;
+	transition: 0.25s ease-in !important;
+}

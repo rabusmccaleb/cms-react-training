@@ -1,0 +1,46 @@
+.comicGridContainer {
+	width : 100%;
+	display : grid;
+	grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+	gap : 12px;
+	place-items: center;
+	margin-top: 20px;
+}
+
+.errorLabel {
+	color : rgb(153, 0, 0);
+	font-weight : 600; 
+	transition : ease-in-out;
+}
+
+.loadingLabel {
+	color : black;
+	font-weight : 600; 
+	transition : ease-in-out;
+	white-space: nowrap;
+}
+
+@media (min-width : 1024px) {
+	.comicGridContainer {
+		width : 100%;
+		display : grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+		gap : 20px;
+		row-gap: 60px;
+		place-items: center;
+	}
+}
+
+@media (max-width : 424px) {
+	.comicGridContainer {
+		display: flex;
+		flex-direction: column;
+		gap : 40px;
+	}
+}
+
+@media (max-width : 360px) {
+	.comicGridContainer {
+		grid-template-columns: repeat(auto-fit, minmax(154px, 1fr));
+	}
+}

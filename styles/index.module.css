@@ -1,0 +1,33 @@
+.mainContent {
+	width: 100vw;
+	height: 100vh;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	display: flex;
+	flex-direction: column;
+}
+
+.contentContainer {
+	display: flex;
+}
+
+.gridContentContainer {
+	width : 100%;
+	height : 100%;
+	display : grid;
+	place-items : center;
+	padding : 40px 60px;
+}
+
+@media (max-width : 800px) {
+	.gridContentContainer {
+		padding: 20px;
+	}
+}
+
+.rssFeed {
+	color : rgb(153, 0, 0);
+	font-weight : 600;
+	margin-bottom : 20px;
+	font-size : 10px;
+}
