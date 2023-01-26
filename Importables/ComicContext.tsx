@@ -14,7 +14,7 @@ export interface comicContextType {
 }
 
 let initilizer : comicContextType = {
-    contentIndex : 1,
+    contentIndex : 0,
     favoritesList : '[]',
     updateIndex : (updateType : indexUpdateType) => {},
     updateFavoritesList : (param : any) => {},
