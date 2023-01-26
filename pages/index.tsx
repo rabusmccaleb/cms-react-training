@@ -25,7 +25,7 @@ export default function Home() {
 			}
 
 			if (comicsObj && (comicsObj.character.trim() === '' || comicsObj.creator.trim() === '')) {
-				let newUrl = returnURL(type!, undefined, '', characterObj);
+				let newUrl = returnURL(type!, 100 , '', characterObj);
 				setComicUrl(oldURL =>{
 					setComics((list : any) => { return []; });
 					resetIndex();
@@ -43,7 +43,7 @@ export default function Home() {
 			}
 		} else {
 			if (!reseting && comicsObj && (comicsObj.character.trim() !== '' || comicsObj.creator.trim() !== '')) {
-				let newUrl = returnURL(requestCategory.comics!, undefined, '', undefined, comicsObj.character, comicsObj.creator);
+				let newUrl = returnURL(requestCategory.comics!, 100, '', undefined, comicsObj.character, comicsObj.creator);
 				setComicUrl(oldURL =>{
 					setComics((list : any) => { return []; });
 					resetIndex();
@@ -73,9 +73,18 @@ export default function Home() {
 				setComics(comicList);
 			}
 			if (contentIndex > 1) {
-				for (let x = (contentIndex * 15) ; x < ((contentIndex * 15) + maxNumber); x++) {
-					if (x < comicData.response.data.length && comicData.response.data[x]) {
-						comicList.push(comicData.response.data[x]);
+				if ( (contentIndex * 15) < comicData.response.data.length ) {
+					for (let x = (contentIndex * 15) ; x < ((contentIndex * 15) + maxNumber); x++) {
+						if (x < comicData.response.data.length && comicData.response.data[x]) {
+							comicList.push(comicData.response.data[x]);
+						}
+					}
+				} else if ((contentIndex * 15) > comicData.response.data.length) {
+					const startingPosition = ((contentIndex - 1) * 15);
+					for (let x = startingPosition; x < comicData.response.data.length; x++) {
+						if (comicData.response.data[x]) {
+							comicList.push(comicData.response.data[x]);
+						}
 					}
 				}
 				setComics(comicList);
@@ -91,6 +100,19 @@ export default function Home() {
 		} else {
 			indexVal = (comicData && comicData?.response && comicData?.response.data && comicData!.response.data.length < 15) ? comicData!.response.data.length : 15;
 			return indexVal;
+		}
+	}
+
+	function getIndexLowBound(): number {
+		if (contentIndex !== 1) {
+			const indexByMax = contentIndex * 15;
+			if (comicData && comicData.response && comicData.response.data && indexByMax < comicData.response.data.length) {
+				return indexByMax;
+			} else {
+				return (((contentIndex - 1) * 15) + 1);
+			}
+		} else { 
+			return 1 ;
 		}
 	}
 
@@ -112,7 +134,7 @@ export default function Home() {
 					<section className={ styles.gridContentContainer }>
 						<CategoryController updateComics={ updateComics }/>
 						<ComicContainer comicData={ comicData } comicUrl={ comicUrl } comics={ comics }/>
-						<IndexView lowBoundIndex={ (contentIndex !== 1) ? (contentIndex * 15) : 1 } highBoundIndex={ getIndexHighBound() }
+						<IndexView lowBoundIndex={ getIndexLowBound() } highBoundIndex={ getIndexHighBound() }
 							maxContentCount={ (comicData && comicData?.response && comicData?.response.data) ? comicData!.response.data.length : undefined }
 						/>
 					</section>

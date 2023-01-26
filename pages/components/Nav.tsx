@@ -35,7 +35,7 @@ const Nav = () => {
 		height : animateHeaderSlide ? 179 : 0.0,
 		config : config.wobbly,
 	});
-	console.log("config : ", config);
+
 	useEffect(() => {
 		setAnimateHeaderSlide(true);
 	}, []);
